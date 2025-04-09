@@ -1,0 +1,11 @@
+framework module MobioSDK {
+  umbrella header "MobioSDK.h"
+  export *
+
+  module * { export * }
+}
+
+module MobioSDK.Swift {
+  header "MobioSDK-Swift.h"
+  requires objc
+}
