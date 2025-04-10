@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "179535660111",
+    "project_id": "fcm-mobile-415a5",
+    "storage_bucket": "fcm-mobile-415a5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179535660111:android:7e62467ef5a4c9ef63963a",
+        "android_client_info": {
+          "package_name": "mobiosdkreactnative.example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoHUtaPxkdiwTtxShpepwXhKOSSBVCR-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

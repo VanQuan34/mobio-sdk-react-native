@@ -1,9 +1,13 @@
 package com.mobiosdkreactnative
 
+import android.app.Application
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.Promise
+import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableArray
+import com.facebook.react.bridge.Callback
 import com.mobio.sdk.MobioSDK
 
 class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
@@ -28,6 +32,12 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
     return "test_sdk_from_ANDROID"
   }
 
+  @ReactMethod
+  fun initWithLaunchOptions(merchantID: String, connectorID: String, apiUrl: String) {
+    val application = reactContext.applicationContext as Application
+    mobio.initialize(application, merchantID, connectorID, null)
+  }
+
 
   // @ReactMethod
   // fun initWithLaunchOptions(merchantId: String, connectorId: String, apiUrl: String) {
@@ -40,92 +50,54 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   // @ReactMethod
   // fun screenSetting(title: String, controllerName: String, timeVisit: [Int]) {
   // }
-  
+
   // @ReactMethod
-  // fun scrollTracking(_ scrollView: UIScrollView, screenName: String) {
+  // fun scrollTracking(screenName: String, scrollPosition: Int) {
   // }
 
   // @ReactMethod
-  // fun track(eventKey: String, properties: [String : Any]) {
-    
-  // }
-
+  // fun track(eventKey: String, properties: ReadableMap) {
+  //   val propertiesMap = properties.toHashMap()
+  // }z
   // @ReactMethod
   // fun viewScreen(screenName: String) {
-    
-  // }
-  
-  // @ReactMethod
-  // fun identity(properties: [String : Any]) {
-  // }
-  
-  // @ReactMethod
-  // fun eventCallback(callback: @escaping ([String: Any]) -> Void) {
-    
-  // }
-
-  // @ReactMethod
-  // fun handleReceivedNotification(userInfo: [AnyHashable: Any]){
-    
-  // }
-
-  // @ReactMethod
-  // fun handleReceivedRichNotification(notificationInfo: UNNotification){
-    
-  // }
-
-  // @ReactMethod
-  // fun handleOnClickNotification(response: UNNotificationResponse){
 
   // }
 
-  // /// Background task
-  // /// Đăng ký một processing task
-  // /// - Parameters:
-  // ///   - identifier: Định danh task
-  // ///   - workItem: Công việc cần thực hiện
   // @ReactMethod
-  // fun registerProcessingTask(identifier: String, promise: Promise) {
-  //   try {
-  //     // MobioSDK.getInstance().registerProcessingTask(identifier) {
-  //     //     promise.resolve("Task $identifier completed")
-  //     // }
-  //   } catch (e: Exception) {
-  //     promise.reject("TASK_ERROR", e)
-  //   }
+  // fun identity(properties: ReadableMap) {
+  //     val propertiesMap = properties.toHashMap()
   // }
 
-  // /// Đăng ký một app refresh task
-  // /// - Parameters:
-  // ///   - identifier: Định danh task
-  // ///   - workItem: Công việc cần thực hiện
   // @ReactMethod
-  // fun registerAppRefreshTask(identifier: String, workItem: Promise) {
+  // fun eventCallback(callback: Callback) {
+  //     val event = mapOf("eventKey" to "sampleEvent", "value" to 123)
+  //     callback.invoke(event)
   // }
 
-  // /// Lên lịch cho một task
-  // /// - Parameters:
-  // ///   - identifier: Định danh task
-  // ///   - config: Cấu hình (nếu nil sẽ dùng cấu hình mặc định)
+  @ReactMethod
+  fun onNewToken(token: String) {
+    mobio.onNewToken(token)
+  }
+
+  @ReactMethod
+  fun setToken(token: String) {
+    mobio.setTokenFirebase(token)
+  }
+
+  @ReactMethod
+  fun handleReceivedNotification(remoteMessage: RemoteMessage) {
+    mobio.onMessageReceived(remoteMessage)
+  }
+
   // @ReactMethod
-  // fun scheduleTask(identifier: String, config: MoTaskConfig? = nil) {
-    
+  // fun handleReceivedRichNotification(notificationInfo: ReadableMap){
+
   // }
-    
-  // /// Lên lịch cho tất cả các task đã đăng ký
+
   // @ReactMethod
-  // fun scheduleAllTasks() {
-    
-  // }
-    
-  // /// Lên lịch task vào một thời điểm cụ thể trong ngày
-  // /// - Parameters:
-  // ///   - identifier: Định danh task
-  // ///   - hour: Giờ (0-23)
-  // ///   - minute: Phút (0-59)
-  // @ReactMethod
-  // fun scheduleTaskAt(identifier: String, hour: Int, minute: Int) {
-    
+  // fun handleOnClickNotification(response: ReadableMap){
+
   // }
 
   companion object {

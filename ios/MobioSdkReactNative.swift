@@ -14,7 +14,7 @@ class MobioSdkReactNative: NSObject {
 
   @objc
   func test_sdk() -> String {
-    return mobio.helloSDK()
+    return "\(mobio.helloSDK())...\("Oke baybe")"
   }
   
   @objc
@@ -23,8 +23,8 @@ class MobioSdkReactNative: NSObject {
   }
 
   @objc
-  func setDeviceToken(deviceToken: String) {
-    mobio.setDeviceToken(deviceToken: deviceToken)
+  func setToken(token: String) {
+    mobio.setDeviceToken(deviceToken: token)
   }
 
   func screenSetting(title: String, controllerName: String, timeVisit: [Int]) {

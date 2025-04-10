@@ -25,16 +25,12 @@ export function test_sdk(): String {
   return MobioSdkReactNative.test_sdk();
 }
 
-export function initWithLaunchOptions(
-  merchantId: String,
-  connectorId: String,
-  apiUrl: String
-) {
+export function initWithLaunchOptions(merchantId: String,connectorId: String,apiUrl: String) {
   MobioSdkReactNative.initWithLaunchOptions(merchantId, connectorId, apiUrl);
 }
 
-export function setDeviceToken(deviceToken: String) {
-  MobioSdkReactNative.setDeviceToken(deviceToken);
+export function setToken(deviceToken: String) {
+  MobioSdkReactNative.setToken(deviceToken);
 }
 
 export function screenSetting(
@@ -49,7 +45,7 @@ export function screenSetting(
 //   MobioSdkReactNative.scrollTracking(scrollView, screenName)
 // }
 
-export function track(eventKey: String, properties: Array<any>) {
+export function track(eventKey: String, properties: any) {
   MobioSdkReactNative.track(eventKey, properties);
 }
 
@@ -57,7 +53,7 @@ export function viewScreen(screenName: String) {
   MobioSdkReactNative.viewScreen(screenName);
 }
 
-export function identity(properties: Array<any>) {
+export function identity(properties: any) {
   MobioSdkReactNative.identity(properties);
 }
 
@@ -65,8 +61,8 @@ export function eventCallback(callback: (event: Record<string, any>) => void) {
   MobioSdkReactNative.eventCallback(callback);
 }
 
-export function handleReceivedNotification(userInfo: Array<any>) {
-  MobioSdkReactNative.handleReceivedNotification(userInfo);
+export function handleReceivedNotification(message: any) {
+  MobioSdkReactNative.handleReceivedNotification(message);
 }
 
 export function handleReceivedRichNotification(notificationInfo: any) {
