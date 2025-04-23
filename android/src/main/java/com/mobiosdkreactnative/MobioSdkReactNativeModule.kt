@@ -8,17 +8,20 @@ import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.Callback
+import android.app.Activity
+import android.util.Log;
+
 import com.mobio.sdk.MobioSDK
 
 class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
 
   private val mobio = MobioSDK.getInstance()
+  private val reactContext: ReactApplicationContext = reactContext
 
   override fun getName(): String {
     return NAME
   }
-
   // Example method
   // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
@@ -35,7 +38,7 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   @ReactMethod
   fun initWithLaunchOptions(merchantID: String, connectorID: String, apiUrl: String) {
     val application = reactContext.applicationContext as Application
-    mobio.initialize(application, merchantID, connectorID, null)
+    mobio.initialize(application, merchantID, connectorID, 100)
   }
 
 
@@ -77,17 +80,18 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun onNewToken(token: String) {
-    mobio.onNewToken(token)
+    MobioSDK.onNewToken(token)
   }
 
   @ReactMethod
   fun setToken(token: String) {
-    mobio.setTokenFirebase(token)
+    MobioSDK.setTokenFirebase(token)
   }
 
   @ReactMethod
-  fun handleReceivedNotification(remoteMessage: RemoteMessage) {
-    mobio.onMessageReceived(remoteMessage)
+  fun handleReceivedNotification(dataMessage: String) {
+    Log.d("MobioSdkReactNative", "handleReceivedNotification: ${dataMessage}")
+    MobioSDK.onMessageDataReceived(dataMessage)
   }
 
   // @ReactMethod
@@ -102,5 +106,11 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
 
   companion object {
     const val NAME = "MobioSdkReactNative"
+
+    @JvmStatic
+    fun registerActivity(activity: Activity) {
+      println("registerLifecycle function called")
+      MobioSDK.registerActivity(activity)
+    }
   }
 }

@@ -62,6 +62,7 @@ export function eventCallback(callback: (event: Record<string, any>) => void) {
 }
 
 export function handleReceivedNotification(message: any) {
+  console.log("handleReceivedNotification", message);
   MobioSdkReactNative.handleReceivedNotification(message);
 }
 
