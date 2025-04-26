@@ -38,6 +38,11 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   @ReactMethod
   fun initWithLaunchOptions(merchantID: String, connectorID: String, apiUrl: String) {
     val application = reactContext.applicationContext as Application
+    val activity = reactContext.currentActivity
+    if (activity == null) {
+        return
+    }
+    MobioSDK.registerActivity(activity)
     mobio.initialize(application, merchantID, connectorID, 100)
   }
 
