@@ -29,6 +29,9 @@ RCT_EXTERN_METHOD(setToken:(NSString *)deviceToken)
 RCT_EXTERN_METHOD(track:(NSString *)eventKey
                   properties:(NSDictionary *)properties)
 
+//identity
+RCT_EXTERN_METHOD(identity:(NSDictionary *)properties)
+
 // Xem màn hình
 // RCT_EXTERN_METHOD(viewScreen:(NSString *)screenName)
 

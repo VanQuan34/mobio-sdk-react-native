@@ -22,9 +22,9 @@ class MobioSdkReactNative: NSObject {
     mobio.initWithLaunchOptions(merchantId: merchantId, connectorId: connectorId, apiUrl: apiUrl)
   }
 
-  @objc
-  func setToken(token: String) {
-    mobio.setDeviceToken(deviceToken: token)
+  @objc(setToken:)
+  func setToken(_ deviceToken: String) {
+      mobio.setDeviceToken(deviceToken: deviceToken)
   }
 
   // func screenSetting(title: String, controllerName: String, timeVisit: [Int]) {
@@ -36,9 +36,9 @@ class MobioSdkReactNative: NSObject {
   //   mobio.scrollTracking(scrollView, screenName: screenName)
   // }
 
-  @objc
-  func track(eventKey: String, properties: [String : Any]) {
-    mobio.track(eventKey: eventKey, properties: properties)
+  @objc(track:properties:)
+  func track(_ eventKey: String, properties: [String: Any]) {
+      mobio.track(eventKey: eventKey, properties: properties)
   }
 
   // @objc
@@ -46,8 +46,9 @@ class MobioSdkReactNative: NSObject {
   //   mobio.viewScreen(screenName: screenName)
   // }
   
-  func identity(_ properties: [String : Any]) {
-    mobio.identity(properties: properties)
+  @objc(identity:)
+  func identity(_ properties: [String: Any]) {
+      mobio.identity(properties: properties)
   }
   
   // @objc
@@ -57,7 +58,7 @@ class MobioSdkReactNative: NSObject {
 
   @objc
   public func handleReceivedNotification(_ userInfo: [AnyHashable: Any]){
-    mobio.handleReceivedNotification(userInfo)
+    // mobio.handleReceivedNotification(userInfo)
   }
 
   // @objc
