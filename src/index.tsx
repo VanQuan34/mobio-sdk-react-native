@@ -33,13 +33,13 @@ export function setToken(deviceToken: String) {
   MobioSdkReactNative.setToken(deviceToken);
 }
 
-export function screenSetting(
-  title: String,
-  controllerName: String,
-  timeVisit: Array<number>
-) {
-  MobioSdkReactNative.screenSetting(title, controllerName, timeVisit);
-}
+// export function screenSetting(
+//   title: String,
+//   controllerName: String,
+//   timeVisit: Array<number>
+// ) {
+//   MobioSdkReactNative.screenSetting(title, controllerName, timeVisit);
+// }
 
 // export function scrollTracking(scrollView: UIScrollView, screenName: String) {
 //   MobioSdkReactNative.scrollTracking(scrollView, screenName)
@@ -49,27 +49,27 @@ export function track(eventKey: String, properties: any) {
   MobioSdkReactNative.track(eventKey, properties);
 }
 
-export function viewScreen(screenName: String) {
-  MobioSdkReactNative.viewScreen(screenName);
-}
+// export function viewScreen(screenName: String) {
+//   MobioSdkReactNative.viewScreen(screenName);
+// }
 
 export function identity(properties: any) {
   MobioSdkReactNative.identity(properties);
 }
 
-export function eventCallback(callback: (event: Record<string, any>) => void) {
-  MobioSdkReactNative.eventCallback(callback);
-}
+// export function eventCallback(callback: (event: Record<string, any>) => void) {
+//   MobioSdkReactNative.eventCallback(callback);
+// }
 
 export function handleReceivedNotification(message: any) {
   console.log("handleReceivedNotification", message);
   MobioSdkReactNative.handleReceivedNotification(message);
 }
 
-export function handleReceivedRichNotification(notificationInfo: any) {
-  MobioSdkReactNative.handleReceivedRichNotification(notificationInfo);
-}
+// export function handleReceivedRichNotification(notificationInfo: any) {
+//   MobioSdkReactNative.handleReceivedRichNotification(notificationInfo);
+// }
 
-export function handleOnClickNotification(response: any) {
-  MobioSdkReactNative.handleOnClickNotification(response);
-}
+// export function handleOnClickNotification(response: any) {
+//   MobioSdkReactNative.handleOnClickNotification(response);
+// }

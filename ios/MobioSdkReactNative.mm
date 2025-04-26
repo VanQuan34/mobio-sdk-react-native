@@ -19,30 +19,30 @@ RCT_EXTERN_METHOD(initWithLaunchOptions:(NSString *)merchantId
                   apiUrl:(NSString *)apiUrl)
 
 // Đặt device token
-RCT_EXTERN_METHOD(setDeviceToken:(NSString *)deviceToken)
+RCT_EXTERN_METHOD(setToken:(NSString *)deviceToken)
 
-// Theo dõi scroll
-RCT_EXTERN_METHOD(scrollTracking:(UIScrollView *)scrollView
-                  screenName:(NSString *)screenName)
+// // Theo dõi scroll
+// RCT_EXTERN_METHOD(scrollTracking:(UIScrollView *)scrollView
+//                   screenName:(NSString *)screenName)
 
 // Gửi sự kiện track
 RCT_EXTERN_METHOD(track:(NSString *)eventKey
                   properties:(NSDictionary *)properties)
 
 // Xem màn hình
-RCT_EXTERN_METHOD(viewScreen:(NSString *)screenName)
+// RCT_EXTERN_METHOD(viewScreen:(NSString *)screenName)
 
 // Đăng ký callback sự kiện
-RCT_EXTERN_METHOD(eventCallback:(RCTResponseSenderBlock)callback)
+// RCT_EXTERN_METHOD(eventCallback:(RCTResponseSenderBlock)callback)
 
 // Xử lý thông báo nhận được
 RCT_EXTERN_METHOD(handleReceivedNotification:(NSDictionary *)userInfo)
 
 // Xử lý thông báo rich
-RCT_EXTERN_METHOD(handleReceivedRichNotification:(UNNotification *)notificationInfo)
+// RCT_EXTERN_METHOD(handleReceivedRichNotification:(UNNotification *)notificationInfo)
 
 // Xử lý click thông báo
-RCT_EXTERN_METHOD(handleOnClickNotification:(UNNotificationResponse *)response)
+// RCT_EXTERN_METHOD(handleOnClickNotification:(UNNotificationResponse *)response)
 
 + (BOOL)requiresMainQueueSetup {
     return NO;
