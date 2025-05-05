@@ -12,11 +12,11 @@ npm install mobio-sdk-react-native
 
 
 ```js
-import { multiply } from 'mobio-sdk-react-native';
+import * as MobioSDK from 'mobio-sdk-react-native';
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await MobioSDK.multiply(3, 7);
 ```
 
 
