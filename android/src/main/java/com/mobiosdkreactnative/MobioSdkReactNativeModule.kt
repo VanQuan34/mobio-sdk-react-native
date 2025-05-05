@@ -42,8 +42,12 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
     if (activity == null) {
         return
     }
-    MobioSDK.registerActivity(activity)
-    mobio.initialize(application, merchantID, connectorID, 100)
+    try {
+      MobioSDK.registerActivity(activity)
+      mobio.initialize(application, merchantID, connectorID, 100)
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
 
@@ -63,10 +67,15 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   // fun scrollTracking(screenName: String, scrollPosition: Int) {
   // }
 
-  // @ReactMethod
-  // fun track(eventKey: String, properties: ReadableMap) {
-  //   val propertiesMap = properties.toHashMap()
-  // }z
+  @ReactMethod
+  fun track(eventKey: String, properties: ReadableMap) {
+    try {
+      val propertiesMap = properties.toHashMap()
+      MobioSDK.track(eventKey, propertiesMap)
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+  }
   // @ReactMethod
   // fun viewScreen(screenName: String) {
 
@@ -85,18 +94,30 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun onNewToken(token: String) {
-    MobioSDK.onNewToken(token)
+    try {
+      MobioSDK.onNewToken(token)
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   @ReactMethod
   fun setToken(token: String) {
-    MobioSDK.setTokenFirebase(token)
+    try {
+      MobioSDK.setTokenFirebase(token)
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   @ReactMethod
   fun handleReceivedNotification(dataMessage: String) {
     Log.d("MobioSdkReactNative", "handleReceivedNotification: ${dataMessage}")
-    MobioSDK.onMessageDataReceived(dataMessage)
+    try {
+      MobioSDK.onMessageDataReceived(dataMessage)
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   // @ReactMethod
@@ -115,7 +136,11 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
     @JvmStatic
     fun registerActivity(activity: Activity) {
       println("registerLifecycle function called")
-      MobioSDK.registerActivity(activity)
+      try {
+        MobioSDK.registerActivity(activity)
+      } catch (e: Exception) {
+        e.printStackTrace()
+      }
     }
   }
 }

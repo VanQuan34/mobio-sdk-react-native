@@ -41,12 +41,6 @@ RCT_EXTERN_METHOD(identity:(NSDictionary *)properties)
 // Xử lý thông báo nhận được
 RCT_EXTERN_METHOD(handleReceivedNotification:(NSDictionary *)userInfo)
 
-// Xử lý thông báo rich
-// RCT_EXTERN_METHOD(handleReceivedRichNotification:(UNNotification *)notificationInfo)
-
-// Xử lý click thông báo
-// RCT_EXTERN_METHOD(handleOnClickNotification:(UNNotificationResponse *)response)
-
 + (BOOL)requiresMainQueueSetup {
     return NO;
 }

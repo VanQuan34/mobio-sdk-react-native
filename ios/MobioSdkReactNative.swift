@@ -19,12 +19,20 @@ class MobioSdkReactNative: NSObject {
   
   @objc(initWithLaunchOptions:connectorId:apiUrl:)
   func initWithLaunchOptions(_ merchantId: String, connectorId: String, apiUrl: String) {
-    mobio.initWithLaunchOptions(merchantId: merchantId, connectorId: connectorId, apiUrl: apiUrl)
+    do {
+      try mobio.initWithLaunchOptions(merchantId: merchantId, connectorId: connectorId, apiUrl: apiUrl)
+    } catch {
+      print("Error initializing Mobio SDK: \(error)")
+    }
   }
 
   @objc(setToken:)
   func setToken(_ deviceToken: String) {
-      mobio.setDeviceToken(deviceToken: deviceToken)
+    do {
+      try mobio.setDeviceToken(deviceToken: deviceToken)
+    } catch {
+      print("Error setting device token: \(error)")
+    }
   }
 
   // func screenSetting(title: String, controllerName: String, timeVisit: [Int]) {
@@ -38,7 +46,11 @@ class MobioSdkReactNative: NSObject {
 
   @objc(track:properties:)
   func track(_ eventKey: String, properties: [String: Any]) {
-      mobio.track(eventKey: eventKey, properties: properties)
+    do {
+      try mobio.track(eventKey: eventKey, properties: properties)
+    } catch {
+      print("Error tracking event: \(error)")
+    }
   }
 
   // @objc
@@ -48,7 +60,11 @@ class MobioSdkReactNative: NSObject {
   
   @objc(identity:)
   func identity(_ properties: [String: Any]) {
-      mobio.identity(properties: properties)
+    do {
+      try mobio.identity(properties: properties)
+    } catch {
+      print("Error setting identity: \(error)")
+    }
   }
   
   // @objc
@@ -60,15 +76,5 @@ class MobioSdkReactNative: NSObject {
   public func handleReceivedNotification(_ userInfo: [AnyHashable: Any]){
     // mobio.handleReceivedNotification(userInfo)
   }
-
-  // @objc
-  // public func handleReceivedRichNotification(_ notificationInfo: UNNotification){
-  //   mobio.handleReceivedRichNotification(notificationInfo)
-  // }
-
-  // @objc
-  // func handleOnClickNotification(_ response: UNNotificationResponse){
-  //   mobio.handleOnClickNotification(response)
-  // }
 
 }

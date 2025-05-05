@@ -65,11 +65,3 @@ export function handleReceivedNotification(message: any) {
   console.log("handleReceivedNotification", message);
   MobioSdkReactNative.handleReceivedNotification(message);
 }
-
-// export function handleReceivedRichNotification(notificationInfo: any) {
-//   MobioSdkReactNative.handleReceivedRichNotification(notificationInfo);
-// }
-
-// export function handleOnClickNotification(response: any) {
-//   MobioSdkReactNative.handleOnClickNotification(response);
-// }
