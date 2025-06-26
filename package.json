@@ -150,5 +150,8 @@
     "type": "legacy-module",
     "languages": "kotlin-swift",
     "version": "0.49.6"
+  },
+  "dependencies": {
+    "@react-navigation/native": "^7.1.8"
   }
 }

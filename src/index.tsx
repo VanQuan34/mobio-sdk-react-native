@@ -1,4 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
+import type { NavigationContainerRef } from '@react-navigation/native';
 
 const LINKING_ERROR =
   `The package 'mobio-sdk-react-native' doesn't seem to be linked. Make sure: \n\n` +
@@ -64,4 +65,14 @@ export function identity(properties: any) {
 export function handleReceivedNotification(message: any) {
   console.log("handleReceivedNotification", message);
   MobioSdkReactNative.handleReceivedNotification(message);
+}
+
+export function listenToNavigation(navigationRef: NavigationContainerRef<any>) {
+  navigationRef.addListener('state', () => {
+    const currentRoute = navigationRef.getCurrentRoute();
+    if (currentRoute) {
+      console.log('Navigated to:', currentRoute.name);
+      MobioSdkReactNative.track('navigation', { screen: currentRoute.name });
+    }
+  });
 }

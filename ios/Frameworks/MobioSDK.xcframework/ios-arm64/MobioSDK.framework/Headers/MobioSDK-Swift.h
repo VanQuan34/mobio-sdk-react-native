@@ -307,6 +307,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
+
 @class NSCoder;
 
 SWIFT_CLASS("_TtC8MobioSDK14GradientButton")
@@ -406,6 +407,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Mobio * _Non
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)initWithLaunchOptionsWithMerchantId:(NSString * _Nonnull)merchantId connectorId:(NSString * _Nonnull)connectorId apiUrl:(NSString * _Nonnull)apiUrl SWIFT_METHOD_FAMILY(none);
+- (void)addTaskTest;
 - (void)screenSettingWithTitle:(NSString * _Nonnull)title controllerName:(NSString * _Nonnull)controllerName timeVisit:(NSArray<NSNumber *> * _Nonnull)timeVisit;
 - (void)scrollTracking:(UIScrollView * _Nonnull)scrollView screenName:(NSString * _Nonnull)screenName;
 - (NSString * _Nonnull)helloSDK SWIFT_WARN_UNUSED_RESULT;
@@ -420,6 +422,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Mobio * _Non
 - (void)handleReceivedRichNotification:(UNNotification * _Nonnull)notificationInfo;
 - (void)handleOnClickNotification:(UNNotificationResponse * _Nonnull)response;
 - (void)testNetWork;
+- (void)testApiOnPage;
 /// Background task
 /// Đăng ký một processing task
 /// \param identifier Định danh task
@@ -481,6 +484,7 @@ SWIFT_AVAILABILITY(ios_app_extension,unavailable)
 - (void)addBehaviors:(NSArray<id <ViewControllerLifeCycleBehavior>> * _Nonnull)behaviors;
 - (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 @end
+
 
 
 SWIFT_PROTOCOL("_TtP8MobioSDK31ViewControllerLifeCycleBehavior_")

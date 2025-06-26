@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/MobioSDK-Swift.h</key>
 		<data>
-		kZj1kEoKEdMFHcPWQ0myHU3b/m8=
+		fnTLqi5WlT9WOvAGQokLAM/YuZU=
 		</data>
 		<key>Headers/MobioSDK.h</key>
 		<data>
@@ -78,43 +78,43 @@
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		4bT7QRBVWs9LxugmBDEDMrZJ++o=
+		zlcVyh/KesSatsUrZRnfMBEcyeI=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		D0UHPXMlA9jAfprBg4IjhNvbCl4=
+		o750sNmjSPZizi1VX7HD/wAJf4E=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		3pQ6V9G3lLnbg2Q/IgNrxqZgJ2Q=
+		ygv4O+NMlz+z93EbIU0I68EoglM=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		D0UHPXMlA9jAfprBg4IjhNvbCl4=
+		o750sNmjSPZizi1VX7HD/wAJf4E=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		xEVquz2Gdr0SLPRzn8v0cL+lzFM=
+		lQMGEjOP8x7PB/svUKgOWgnJOhI=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		4bT7QRBVWs9LxugmBDEDMrZJ++o=
+		zlcVyh/KesSatsUrZRnfMBEcyeI=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		UfFmYTNSeVdtuloJ+DH+CCqNN+g=
+		RUZ0jXhBJKIFFzTjVs0DjeVFkHY=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		1klhsjhIk28D2Ai05X1OdSQBxOM=
+		FIeJ2qNCsibv2Jc6FGQtDN50phs=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		UfFmYTNSeVdtuloJ+DH+CCqNN+g=
+		RUZ0jXhBJKIFFzTjVs0DjeVFkHY=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		czVYoglqdgtwFUrJVr5ZdOZNWY8=
+		IrppzpyOZ7wpT64YUQls18I8myg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -155,7 +155,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wR2FI9IK2uPYDVqIN81VxbTmLVlmK0hLdkvhPRdVnWs=
+			9L9wauFFeIw2hhCM1RGGP2T61NoGAm9ic88GkA30JQo=
 			</data>
 		</dict>
 		<key>Headers/MobioSDK.h</key>
@@ -274,70 +274,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gDPqouvjesWPRRTDlY3SQTguVsalrCehOHGK1zIopIM=
+			jmM6U9Tgudfql41qlm1mHCT03WFEb+H6jIjfCMhKkZg=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			00VDBK6C/cU8pe+HbSkrCMdF3voz4yQPrfmGd0ZryVU=
+			DuAueSdEwXghTc8KN0rib4i0zDx2uVmWdnP61apWk4w=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bj0ZzW5o2WFtmaxebY9N5uXXD2Xe9iutrwpIEaa57Xg=
+			rtKiEtPtGk/zCuzuuQsJITsqAJrPaTx46yseoHnjMx8=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			00VDBK6C/cU8pe+HbSkrCMdF3voz4yQPrfmGd0ZryVU=
+			DuAueSdEwXghTc8KN0rib4i0zDx2uVmWdnP61apWk4w=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7ZDWMQibXBIS5F+lcQd/SM+pnEX5tmT1SwiHLA/kwXo=
+			uo2D5KHqh9Kv1BDJOMApLIOt1sEZ76x85HSAdmk+TbI=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gDPqouvjesWPRRTDlY3SQTguVsalrCehOHGK1zIopIM=
+			jmM6U9Tgudfql41qlm1mHCT03WFEb+H6jIjfCMhKkZg=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DxH+uWcZRw1X8BMpEy/Yek40SXGhYVIZzgUw3UyKlxU=
+			XEmFC+0TVH4tqzYNN8FDfkCoBGvkOsMlusZocybvgOo=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XRcBchOMVVUs7vEnNqBXQDrHr7oSY2oykXBWTQdd7sw=
+			8C81AEGs8mfYBpcs82RpBrANRGPN9MeR4bN6yUoqAHk=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DxH+uWcZRw1X8BMpEy/Yek40SXGhYVIZzgUw3UyKlxU=
+			XEmFC+0TVH4tqzYNN8FDfkCoBGvkOsMlusZocybvgOo=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YEuoZonQq4EQMNlX5r9cEHooB75mO/cYcwtYl23uBUQ=
+			kn/d/PLCgGjTi9P4y1i0CNre80cCwmoP3syIh020Xys=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

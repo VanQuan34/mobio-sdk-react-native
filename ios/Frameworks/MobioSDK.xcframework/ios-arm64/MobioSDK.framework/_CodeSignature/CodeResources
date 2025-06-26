@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/MobioSDK-Swift.h</key>
 		<data>
-		DGgFyWz2uMzdkdgQg0ZX6IRKFu4=
+		SQNiIKLaNRCGuyeEtfjb4VgKy94=
 		</data>
 		<key>Headers/MobioSDK.h</key>
 		<data>
@@ -78,23 +78,23 @@
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		4bT7QRBVWs9LxugmBDEDMrZJ++o=
+		zlcVyh/KesSatsUrZRnfMBEcyeI=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		0izoFZ9U5modVA9KSfA0v+Jw8h0=
+		TQL9uzLcx9fGzaDwFug2cfbnnvE=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		fXUisIf5tppPS97e/9xcXry8B2M=
+		VX74gqXEFTllWvNgW6cdRzCCot0=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		0izoFZ9U5modVA9KSfA0v+Jw8h0=
+		TQL9uzLcx9fGzaDwFug2cfbnnvE=
 		</data>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		4qsjdIbCz8d3Zo6qYtvw/ZAiBIE=
+		VZswW25XLY2sYv18FXuoNiO65q0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -135,7 +135,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NrV2eyLb1FCn8jBHwCi//aYT/8aqFgXjECflzofgwVs=
+			4nmJx0rd9ZKgGRYTSRilMWlqgdx5gLB9xvGHIhmap1M=
 			</data>
 		</dict>
 		<key>Headers/MobioSDK.h</key>
@@ -254,35 +254,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gDPqouvjesWPRRTDlY3SQTguVsalrCehOHGK1zIopIM=
+			jmM6U9Tgudfql41qlm1mHCT03WFEb+H6jIjfCMhKkZg=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KP/X4Cq9Z3yHjZIpXqF2gYjqE2U6ZsVPQ1CUYLAiaYw=
+			RTQTqPMB87We5usp1hU67X5j64sKpTrRP7ScTgP+uzs=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/Fgdx7wWFOG+huaxjO9hEhvKu7VkluFCIl03g8JLtMg=
+			Ae0MNNXhbIWadPYNacAAj+WRF+ee2DVoj5afVXUtrmo=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KP/X4Cq9Z3yHjZIpXqF2gYjqE2U6ZsVPQ1CUYLAiaYw=
+			RTQTqPMB87We5usp1hU67X5j64sKpTrRP7ScTgP+uzs=
 			</data>
 		</dict>
 		<key>Modules/MobioSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oxVB9K91UF55XXIJTWeTeno3AITAmleGl2T2qkbsiRY=
+			js+TFQo6d8Ijtj4w50b70K/zP/pzp+WZ7tuB3F5ydU0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

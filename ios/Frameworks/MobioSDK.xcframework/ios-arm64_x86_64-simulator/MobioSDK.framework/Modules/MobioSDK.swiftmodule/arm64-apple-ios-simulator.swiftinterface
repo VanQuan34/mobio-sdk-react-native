@@ -25,6 +25,7 @@ import _Concurrency
 import _CoreNFC_UIKit
 import _StringProcessing
 import _SwiftConcurrencyShims
+import ObjectiveC.runtime
 public class MoFileLog : MobioSDK.MoLogDestination {
   public init(fileName: Swift.String = "app_logs.txt")
   public func write(_ message: Swift.String, level: MobioSDK.MoLogLevel)
@@ -71,6 +72,14 @@ extension MobioSDK.MoXibSceneBased where Self : UIKit.UIViewController {
   public static func parseNotificationRemote(jsonData: Foundation.Data) -> MobioSDK.MoNotificationRemote?
   @objc deinit
 }
+public protocol MoDatabaseModel {
+  init()
+}
+public struct MoHandleNodeOptions {
+  public var properties: [Swift.String : Any]?
+  public var checkNode: Swift.Bool?
+  public init(properties: [Swift.String : Any]? = nil, checkNode: Swift.Bool? = nil)
+}
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class MoDialog : UIKit.UIView {
   @objc deinit
 }
@@ -94,6 +103,8 @@ public class MoUtils {
   public init()
   public func helloSDK() -> Swift.String
   public func getCurrentViewController() -> UIKit.UIViewController?
+  public static func isNullOrEmpty(_ value: Any?) -> Swift.Bool
+  public static func makeJSONSafe(_ object: Any) -> Any
   @objc deinit
 }
 public enum MoNotificationActionIdentifier : Swift.String {
@@ -205,10 +216,19 @@ extension UIKit.UIApplication {
   @objc deinit
   public func resetDatabase()
   public func alterTables(_ tableName: Swift.String, addColumns columns: [(name: Swift.String, type: Swift.String)])
-  public func createTableQuery()
   public func createTablesFromModels(models: [Swift.String : any MobioSDK.MoDatabaseModel.Type])
   public func createAllTable()
   public func showTableStructures()
+  public func removeCampaignActive()
+}
+public enum RequestType : Swift.String {
+  case campaign
+  case trigger
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class GradientButton : UIKit.UIButton {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
@@ -243,31 +263,13 @@ public protocol MoLogDestination {
   public static func getTimeUtcNow() -> Swift.String
   public static func dateToTimestamp(_ date: Foundation.Date) -> Swift.Int
   public static func timestampToDate(_ timestamp: Swift.Int) -> Foundation.Date
+  public static func convertDataByFormat(value: Any, fieldProfile: [Swift.String : Any]) -> Swift.String?
   public static func formatDate(from input: Any, to format: Swift.String) -> Swift.String?
   public static func getCurrentDate(_ format: Swift.String) -> Swift.String
   public static func getCurrentDateTimeStamp() -> Swift.Int
   public static func getDateTimeStamp(from dateString: Swift.String) -> Swift.Int
   public static func convertStringToDateTimeStamp(from dateString: Swift.String, format: Swift.String = "yyyy-MM-dd HH:mm:ss", timeZone: Swift.String = "UTC") -> Swift.Int
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class MoDBPopupController {
-  public static let shared: MobioSDK.MoDBPopupController
-  public func addPopup(jsonData: [Swift.String : Any])
-  @objc deinit
-}
-public protocol MoDatabaseModel {
-  init()
-}
-public class MoDBUser : MobioSDK.MoDatabaseModel {
-  public var id: Swift.Int?
-  public var user_id: Swift.String?
-  public var user_name: Swift.String
-  public var password: Swift.String
-  public var age: Swift.Int
-  public var created_at: Swift.String?
-  public var updated_at: Swift.String?
-  public init(id: Swift.Int? = nil, user_id: Swift.String? = "", user_name: Swift.String, password: Swift.String, age: Swift.Int, created_at: Swift.String? = "", updated_at: Swift.String? = "")
-  required public init()
+  public static func convertTimestampToStringDate(_ timestamp: Swift.Int) -> Swift.String
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class MoLogger {
@@ -296,6 +298,7 @@ extension MobioSDK.MoScreenController : UIKit.UIScrollViewDelegate {
   @objc public var connectorId: Swift.String
   public var defaultConfig: MobioSDK.MoTaskConfig
   @objc public func initWithLaunchOptions(merchantId: Swift.String, connectorId: Swift.String, apiUrl: Swift.String)
+  @objc public func addTaskTest()
   @objc public func screenSetting(title: Swift.String, controllerName: Swift.String, timeVisit: [Swift.Int])
   @objc public func scrollTracking(_ scrollView: UIKit.UIScrollView, screenName: Swift.String)
   @objc public func helloSDK() -> Swift.String
@@ -310,6 +313,7 @@ extension MobioSDK.MoScreenController : UIKit.UIScrollViewDelegate {
   @objc public func handleReceivedRichNotification(_ notificationInfo: UserNotifications.UNNotification)
   @objc public func handleOnClickNotification(_ response: UserNotifications.UNNotificationResponse)
   @objc public func testNetWork()
+  @objc public func testApiOnPage()
   @objc public func registerProcessingTask(identifier: Swift.String, workItem: @escaping () -> Swift.Void)
   @objc public func registerAppRefreshTask(identifier: Swift.String, workItem: @escaping () -> Swift.Void)
   public func scheduleTask(identifier: Swift.String, config: MobioSDK.MoTaskConfig? = nil)
@@ -334,6 +338,10 @@ extension MobioSDK.MoScreenController : UIKit.UIScrollViewDelegate {
     case deviceInfo
     case appInfo
     case lastBluetoothPermissionRequestTime
+    case validNodeTarget
+    case taskScheduler
+    case rawEventSync
+    case conditionEvent
     public init?(rawValue: Swift.String)
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
@@ -386,6 +394,28 @@ extension MobioSDK.MoScreenController : UIKit.UIScrollViewDelegate {
       get
     }
   }
+  @_hasMissingDesignatedInitializers public class MoOnPage {
+    public static let PREFIX_AUDIENCE: Swift.String
+    @objc deinit
+  }
+  @_hasMissingDesignatedInitializers public class MoSDKInfo {
+    public static let SDK_VERSION: Swift.String
+    @objc deinit
+  }
+  @_hasMissingDesignatedInitializers public class MoEventSync {
+    public static let MO_TOTAL_RECORD_TO_SEND: Swift.Int
+    public static let MO_INTERVER_TIME_REPEAT: Swift.Int
+    public static let MO_SCHEDULER_NAME: Swift.String
+    @objc deinit
+  }
+  @_hasMissingDesignatedInitializers public class HttpCode {
+    public static let SUCCESS: Swift.Int
+    @objc deinit
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class MoOnPageNodePush {
+  public static var shared: MobioSDK.MoOnPageNodePush
   @objc deinit
 }
 extension UIKit.UIView {
@@ -407,6 +437,7 @@ extension UIKit.UIView {
   }
 }
 extension UIKit.UIScrollView {
+  @_Concurrency.MainActor @preconcurrency public static var lastTrackedPercentage: [Swift.String : Swift.Int]
   @_Concurrency.MainActor @preconcurrency public class func swizzleScrollViewDelegate()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
@@ -418,6 +449,12 @@ extension UIKit.UIView {
   public static func saveImageToDisk(image: UIKit.UIImage, identifier: Swift.String) -> UserNotifications.UNNotificationAttachment?
   public static func isValidImageUrl(_ urlString: Swift.String) -> Swift.Bool
   @objc deinit
+}
+extension UIKit.UIViewController {
+  @_Concurrency.MainActor @preconcurrency public static func swizzleViewControllerLifecycle()
+}
+public protocol MoTrackable {
+  func track(eventKey: Swift.String, properties: [Swift.String : Any]?)
 }
 public struct MoTaskConfig {
   public var earliestBeginDate: Foundation.Date?
@@ -466,14 +503,6 @@ public enum MoTaskType {
   public func getScreenHeight() -> Swift.Double
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class MoDBUserController {
-  public static let shared: MobioSDK.MoDBUserController
-  public func addUser(name: Swift.String, password: Swift.String, age: Swift.Int)
-  public func getUsers() -> [MobioSDK.MoDBUser]
-  public func getUserById(userId: Swift.String) -> MobioSDK.MoDBUser?
-  public func isRecordExist(tableName: Swift.String, fieldName: Swift.String, value: Any) -> Swift.Bool
-  @objc deinit
-}
 public class MoAppLifecycle {
   public init()
   @objc deinit
@@ -483,8 +512,14 @@ public class MoAppLifecycle {
   @objc deinit
 }
 public struct MoUserDefault {
+  public static func removeObject(forKey key: MobioSDK.MoContant.UserDefaultKeys)
   public static func getValue<T>(forKey: MobioSDK.MoContant.UserDefaultKeys) -> T?
   public static func getString(forKey: MobioSDK.MoContant.UserDefaultKeys) -> Swift.String
+}
+@_hasMissingDesignatedInitializers public class MoOnPageNode {
+  public static let shared: MobioSDK.MoOnPageNode
+  public func handleNode(nextNodeId: Swift.String, currentNodeId: Swift.String, isContinue: Swift.Bool = false, options: MobioSDK.MoHandleNodeOptions? = nil)
+  @objc deinit
 }
 extension MobioSDK.MoLogLevel : Swift.Equatable {}
 extension MobioSDK.MoLogLevel : Swift.Hashable {}
@@ -495,6 +530,9 @@ extension MobioSDK.MoNotificationActionIdentifier : Swift.RawRepresentable {}
 extension MobioSDK.MoForegroundTaskType : Swift.Equatable {}
 extension MobioSDK.MoForegroundTaskType : Swift.Hashable {}
 extension MobioSDK.MoForegroundTaskType : Swift.RawRepresentable {}
+extension MobioSDK.RequestType : Swift.Equatable {}
+extension MobioSDK.RequestType : Swift.Hashable {}
+extension MobioSDK.RequestType : Swift.RawRepresentable {}
 extension MobioSDK.MoEventCallbackType : Swift.Equatable {}
 extension MobioSDK.MoEventCallbackType : Swift.Hashable {}
 extension MobioSDK.MoEventCallbackType : Swift.RawRepresentable {}

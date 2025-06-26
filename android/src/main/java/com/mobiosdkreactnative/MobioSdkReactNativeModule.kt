@@ -11,12 +11,12 @@ import com.facebook.react.bridge.Callback
 import android.app.Activity
 import android.util.Log;
 
-import com.mobio.sdk.MobioSDK
+import com.mobio.sdk.Mobio
 
 class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
 
-  private val mobio = MobioSDK.getInstance()
+  private val mobio = Mobio.getInstance()
   private val reactContext: ReactApplicationContext = reactContext
 
   override fun getName(): String {
@@ -31,7 +31,7 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
 
   @ReactMethod
   fun test_sdk(): String {
-    mobio.track()
+    // mobio.track()
     return "test_sdk_from_ANDROID"
   }
 
@@ -43,8 +43,8 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
         return
     }
     try {
-      MobioSDK.registerActivity(activity)
-      mobio.initialize(application, merchantID, connectorID, 100)
+      Mobio.registerActivity(activity)
+      mobio.initWithLaunchOptions(application, merchantID, connectorID, 100)
     } catch (e: Exception) {
       e.printStackTrace()
     }
@@ -71,7 +71,7 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   fun track(eventKey: String, properties: ReadableMap) {
     try {
       val propertiesMap = properties.toHashMap()
-      MobioSDK.track(eventKey, propertiesMap)
+       mobio.track(eventKey, propertiesMap)
     } catch (e: Exception) {
       e.printStackTrace()
     }
@@ -95,7 +95,7 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   @ReactMethod
   fun onNewToken(token: String) {
     try {
-      MobioSDK.onNewToken(token)
+      Mobio.onNewToken(token)
     } catch (e: Exception) {
       e.printStackTrace()
     }
@@ -104,7 +104,7 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   @ReactMethod
   fun setToken(token: String) {
     try {
-      MobioSDK.setTokenFirebase(token)
+      Mobio.setDeviceToken(token)
     } catch (e: Exception) {
       e.printStackTrace()
     }
@@ -114,7 +114,7 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
   fun handleReceivedNotification(dataMessage: String) {
     Log.d("MobioSdkReactNative", "handleReceivedNotification: ${dataMessage}")
     try {
-      MobioSDK.onMessageDataReceived(dataMessage)
+      Mobio.onMessageDataReceived(dataMessage)
     } catch (e: Exception) {
       e.printStackTrace()
     }
@@ -137,7 +137,7 @@ class MobioSdkReactNativeModule(reactContext: ReactApplicationContext) :
     fun registerActivity(activity: Activity) {
       println("registerLifecycle function called")
       try {
-        MobioSDK.registerActivity(activity)
+        Mobio.registerActivity(activity)
       } catch (e: Exception) {
         e.printStackTrace()
       }
